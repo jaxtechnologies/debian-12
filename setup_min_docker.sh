@@ -48,8 +48,8 @@ apt install docker-compose -y
 echo "set mouse-=a" >> ~/.vimrc
 echo "set mouse-=a" >> /home/$primary_user/.vimrc
 usermod -G docker $primary_user
-echo "alias ll='ls $LS_OPTIONS -l'" >> ~/.bashrc
-echo "alias ll='ls $LS_OPTIONS -l'" >> /home/$primary_user/.bashrc
+echo "alias ll='ls -al'" >> ~/.bashrc
+echo "alias ll='ls -al'" >> /home/$primary_user/.bashrc
 echo "alias ha='cd /opt/homeassistant/config/'" >> ~/.bashrc
 echo "alias ha='cd /opt/homeassistant/config/'" >> /home/$primary_user/.bashrc
 
