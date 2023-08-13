@@ -28,18 +28,30 @@ else
 echo “you are currently root”
 fi
 
-
 install_path=$(pwd)
+
+read -p "Do you have a primary non-priviledged user that needs classic VIM  (y/n)?"
+	if [ "$REPLY" = "y" ]; then
+      echo “What is the primary username”
+	   read primary_user
+	else
+			cancel
+	fi 
 
 apt update
 apt upgrade -y
 
-apt install openssh-server -y
 apt install vim -y
-echo "set mouse-=a" >> ~/.vimrc
 apt install dos2unix -y
 apt install docker.io -y
 apt install docker-compose -y
+echo "set mouse-=a" >> ~/.vimrc
+echo "set mouse-=a" >> /home/$primary_user/.vimrc
+usermod -G docker $primary_user
+echo "alias ll='ls $LS_OPTIONS -l'" >> ~/.bashrc
+echo "alias ll='ls $LS_OPTIONS -l'" >> /home/$primary_user/.bashrc
+echo "alias ha='cd /opt/homeassistant/config/'" >> ~/.bashrc
+echo "alias ha='cd /opt/homeassistant/config/'" >> /home/$primary_user/.bashrc
 
 clear
 echo ""
@@ -56,7 +68,6 @@ if [ "$REPLY" = "n" ]; then
 else
         cancel
 fi
-
 
 clear
 echo ""
