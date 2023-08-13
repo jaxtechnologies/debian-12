@@ -32,8 +32,8 @@ install_path=$(pwd)
 
 read -p "Do you have a primary non-priviledged user that needs classic VIM  (y/n)?"
 	if [ "$REPLY" = "y" ]; then
-      echo “What is the primary username”
-	   read primary_user
+ 		echo “What is the primary username”
+		read primary_user
 	else
 			cancel
 	fi 
@@ -52,6 +52,17 @@ echo "alias ll='ls -al'" >> ~/.bashrc
 echo "alias ll='ls -al'" >> /home/$primary_user/.bashrc
 echo "alias ha='cd /opt/homeassistant/config/'" >> ~/.bashrc
 echo "alias ha='cd /opt/homeassistant/config/'" >> /home/$primary_user/.bashrc
+
+clear
+echo ""
+read -p "Do you need to load yaml code and startup docker-compose  (y/n)?"
+	if [ "$REPLY" = "y" ]; then
+		nano /opt/docker-compose.yaml
+  		docker-compose up -d
+	else
+			cancel
+	fi 
+
 
 clear
 echo ""
