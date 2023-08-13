@@ -60,7 +60,7 @@ if [ "$REPLY" = "y" ]; then
 	mv $install_path/docker-compose.yaml /opt/docker-compose.yaml
 	cd /opt
  	docker-compose up -d
-	sleep 30
+	sleep 5
 else
 	cancel
 fi 
