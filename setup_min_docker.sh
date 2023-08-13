@@ -57,8 +57,8 @@ clear
 echo ""
 read -p "Do you need to load yaml code and startup docker-compose  (y/n)?"
 	if [ "$REPLY" = "y" ]; then
-		nano /opt/docker-compose.yaml
-  		docker-compose up -d
+		mv $install_path/docker-compose.yaml /opt/docker-compose.yaml
+  		/opt/docker-compose up -d
 	else
 			cancel
 	fi 
