@@ -18,6 +18,16 @@ echo " JTOS script will launch in 5 seconds..."
 
 sleep 5
 
+if [[ $EUID -ne 0 ]]; then
+  clear
+  echo ""
+  echo "You must be root to run this script" 2>&1
+  exit 1
+else
+
+echo “you are currently root”
+fi
+
 
 install_path=$(pwd)
 
