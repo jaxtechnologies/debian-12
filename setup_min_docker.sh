@@ -43,6 +43,7 @@ apt upgrade -y
 
 apt install vim -y
 apt install dos2unix -y
+apt install unzip -y
 apt install docker.io -y
 apt install docker-compose -y
 echo "set mouse-=a" >> ~/.vimrc
